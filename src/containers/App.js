@@ -4,9 +4,8 @@ import './App.css';
 import withClass from '../hoc/withClass';
 import {AuthContext} from '../context';
 import Posts from './Posts';
-import PostDetail from './Posts/PostDetail';
 import Test from '../components/Test';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 class App extends Component {
   constructor() {
     super();
@@ -67,8 +66,8 @@ class App extends Component {
         </div>
         <Switch>
           <Route path='/test' exact component={Test} />
-          <Route path='/:id' component={PostDetail} />
-          <Route path='/' component={Posts} />
+          <Route path='/posts' component={Posts} />
+          <Redirect from='/' to='/posts' />
         </Switch>
         {/* <h1>Hello World</h1>
         <p>{this.state.counter}</p>
