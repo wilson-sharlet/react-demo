@@ -2,6 +2,7 @@ const redux = require('redux');
 
 const initialState = {
     counter: 0,
+    result: null,
 }
 
 // Reducer
@@ -16,6 +17,12 @@ const rootReducer = (state = initialState, action) => {
         return {
             ...state,
             counter: state.counter + action.value,
+        }
+    }
+    if (action.type === 'STORE_RESULT') {
+        return {
+            ...state,
+            result: state.counter
         }
     }
     return state;

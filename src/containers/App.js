@@ -4,7 +4,7 @@ import './App.css';
 import withClass from '../hoc/withClass';
 import {AuthContext} from '../context';
 import Posts from './Posts';
-import Test from '../components/Test';
+import Counter from '../containers/Counter';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 class App extends Component {
   constructor() {
@@ -62,10 +62,10 @@ class App extends Component {
             activeClassName='active-test'
             activeStyle={{color: 'red'}}
           >Home</NavLink>
-          <NavLink to={{pathname: '/test', search: '?test=123'}}>Test</NavLink>
+          <NavLink to={{pathname: '/counter', search: '?test=123'}}>Counter</NavLink>
         </div>
         <Switch>
-          <Route path='/test' exact component={Test} />
+          <Route path='/counter' exact component={Counter} />
           <Route path='/posts' component={Posts} />
           <Redirect from='/' to='/posts' />
         </Switch>
