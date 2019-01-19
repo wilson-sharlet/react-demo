@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions';
 
 class Counter extends Component {
     render() {
@@ -15,16 +16,16 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counter,
-        res: state.result,
+        ctr: state.get('coun').get('counter'),
+        res: state.get('res').get('result'),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleIncrement: () => dispatch({ type: 'INCREMENT' }),
-        handleAdd: (payload) => dispatch({ type: 'ADD', payload }),
-        storeResult: (result) => dispatch({ type: 'STORE_RESULT', result }),
+        handleIncrement: () => dispatch({ type: actions.INCREMENT }),
+        handleAdd: (payload) => dispatch({ type: actions.ADD, payload }),
+        storeResult: (result) => dispatch({ type: actions.STORE_RESULT, result }),
     }
 }
 

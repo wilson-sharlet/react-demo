@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux';
-import rootReducer from './store/reducers';
+import counterReducer from './store/reducers/counter';
+import resultReducer from './store/reducers/result';
 import { Provider } from 'react-redux';
+import { combineReducers } from 'redux-immutable';
 
 // axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
@@ -17,6 +19,11 @@ import { Provider } from 'react-redux';
 // })
 
 // axios.defaults.headers.common['Authorization'] = 'AUTH';
+
+const rootReducer = combineReducers({
+    coun: counterReducer,
+    res: resultReducer,
+})
 
 const store = createStore(rootReducer);
 
